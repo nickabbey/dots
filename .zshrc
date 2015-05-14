@@ -117,3 +117,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# git aliases
+alias gs="git status"
+alias gl="git log"
+alias gf="git fetch"
+alias gp="git push"
+alias ga="git add ."
+alias gA="git add . -A"
+# git syntactic sugar 
+gcp () {git commit -m $1 && git push  }
