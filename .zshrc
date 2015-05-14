@@ -76,8 +76,8 @@ zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%{$fg[green]%}±"
 zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}±"
-zstyle ':vcs_info:git*' formats "%{$fg[blue]%}(%{$fg[magenta]%}%s%{$reset_color%}:%{$fg[yellow]%}%b%{$reset_color%}:%m%u%c%{$fg[blue]%})%{$reset_color%}"
-zstyle ':vcs_info:hg*' formats "%{$fg[blue]%}(%{$fg[magenta]%}%s%{$reset_color%}:%{$fg[yellow]%}%b%{$reset_color%}:%m%u%c%{$fg[blue]%})%{$reset_color%}"
+zstyle ':vcs_info:*' formats "%{$fg[blue]%}(%{$fg[magenta]%}%s%{$reset_color%}:%{$fg[yellow]%}%b%{$reset_color%}:%m%u%c%{$fg[blue]%})%{$reset_color%}"
+#zstyle ':vcs_info:hg*' formats "%{$fg[blue]%}(%{$fg[magenta]%}%s%{$reset_color%}:%{$fg[yellow]%}%b%{$reset_color%}:%m%u%c%{$fg[blue]%})%{$reset_color%}"
 zstyle ':vcs_info:hg*:*' get-bookmarks true
 zstyle ':vcs_info:hg*' actionformats "(%s|%a)[%i%u %b %m]"
 precmd() {
