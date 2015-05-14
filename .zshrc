@@ -1,8 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/nickabbey/.oh-my-zsh
-
+autoload -U colors && colors
 # Load antigen for zsh easy configs
-source /Users/nickabbey/DevOps/antigen/antigen.zsh
+#source /Users/nickabbey/DevOps/antigen/antigen.zsh
 
 # Directory stack
 DIRSTACKFILE="$HOME/.cache/zsh/dirs"
