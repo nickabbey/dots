@@ -3,7 +3,7 @@ filetype off                  " required
 
 " display line numbers
 set number
-
+syntax on
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -13,6 +13,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" Get the solarized plugin
+Bundle 'altercation/vim-colors-solarized'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -43,5 +45,5 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+colorscheme solarized
 
-syntax on
