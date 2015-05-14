@@ -1,7 +1,8 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" display line numbers
+
+" make sure we are in 256 color mode
+set t_Co=256
+highlight Normal guibg=black guifg=white
 set number
 syntax on
 " set the runtime path to include Vundle and initialize
@@ -12,6 +13,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-scripts/CycleColor'
 
 " Get the solarized plugin
 Bundle 'altercation/vim-colors-solarized'
@@ -45,5 +47,9 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-colorscheme solarized
+colorscheme elflord
+set background=dark
+set t_Co=256
+set number
+syntax on
 
