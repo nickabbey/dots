@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/nickabbey/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 autoload -U colors && colors
 # Load antigen for zsh easy configs
 #source /Users/nickabbey/DevOps/antigen/antigen.zsh
@@ -127,3 +127,5 @@ alias ga="git add ."
 alias gA="git add . -A"
 # git syntactic sugar 
 gcp () {git commit -m $1 && git push  }
+#quick access to local dev env
+alias s2v="ssh localdev"
