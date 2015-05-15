@@ -1,5 +1,3 @@
-
-
 " make sure we are in 256 color mode
 set t_Co=256
 highlight Normal guibg=black guifg=white

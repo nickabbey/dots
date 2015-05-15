@@ -68,7 +68,7 @@ ZSH_THEME="nico"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ssh-agent)
+plugins=(ssh-agent virtualenvwrapper)
 
 # User configuration
 autoload -Uz vcs_info
@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+   export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
@@ -118,6 +118,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# source the virtualenv wrapper
+source /usr/local/bin/virtualenvwrapper.sh
+
 # git aliases
 alias gs="git status"
 alias gl="git log"
@@ -129,3 +132,7 @@ alias gA="git add . -A"
 gcp () {git commit -m $1 && git push  }
 #quick access to local dev env
 alias s2v="ssh localdev"
+alias neovim="nvim"
+alias macvim="mvim"
+export PIP_VIRTUALENV_BASE=/home/vagrant/.virtualenvs
+export VIRTUAL_ENV_DISABLE_PROMPT=1

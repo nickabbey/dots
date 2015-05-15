@@ -1,0 +1,6 @@
+[extensions]
+fetch =
+shelve =
+prompt = ~/repos/hg-prompt/prompt.py
+[ui]
+username = Nicholas Abbruzzese nicholas.abbruzzese@regionalhelpwanted.com
