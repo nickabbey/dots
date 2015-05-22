@@ -1,0 +1,15 @@
+#!/bin/bash
+# This hook is sourced after every virtualenv is activated.
+proj_name=$(basename $VIRTUAL_ENV)
+mkdir -p $HOME/repos/$proj_name
+cd $HOME/repos/$proj_name
+
+# change behavior of CD, just in this virtualenv so that `cd` without args goes to project root
+cd () {
+	if (( $# == 0 ))
+		then
+			builtin cd $HOME/repos/$proj_name
+		else
+			builtin cd "$@"	
+	fi
+}
