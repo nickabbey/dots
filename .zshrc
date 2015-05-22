@@ -5,18 +5,19 @@ autoload -U colors && colors
 #source /Users/nickabbey/DevOps/antigen/antigen.zsh
 
 # Directory stack
-DIRSTACKFILE="$HOME/.cache/zsh/dirs"
-if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-	  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-	    [[ -d $dirstack[1] ]] && cd $dirstack[1]
- fi
-chpwd() {
-	print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
-}
+# didn't use this much, and in vagrant it's noisy when changing dirs.
+#DIRSTACKFILE="$HOME/.cache/zsh/dirs"
+#if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+#	  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+#	    [[ -d $dirstack[1] ]] && cd $dirstack[1]
+# fi
+#chpwd() {
+#	print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+#}
 
-DIRSTACKSIZE=20
+#DIRSTACKSIZE=20
 
-setopt autopushd pushdsilent pushdtohome
+#setopt autopushd pushdsilent pushdtohome
 
 ## Remove duplicate entries from dirstack
 #setopt pushdignoredups
@@ -120,6 +121,8 @@ source $ZSH/oh-my-zsh.sh
 
 # source the virtualenv wrapper
 source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/repos
 
 # git aliases
 alias gs="git status"
@@ -128,11 +131,125 @@ alias gf="git fetch"
 alias gp="git push"
 alias ga="git add ."
 alias gA="git add . -A"
+# mercurial aliases
+alias hs="hg status"
+alias hl="hg log"
+alias hu="hg update"
+alias hup="hg update && hg pull"
+alias hupm="hg update && hg pull && hg merge"
+alias hpush="hg push"
+alias hpull="hg pull"
+alias ha="hg add"
+
 # git syntactic sugar 
 gcp () {git commit -m $1 && git push  }
+
+# hg syntactic sugar
+hc () {hg commit -m $1 } 
+
 #quick access to local dev env
 alias s2v="ssh localdev"
 alias neovim="nvim"
 alias macvim="mvim"
-export PIP_VIRTUALENV_BASE=/home/vagrant/.virtualenvs
+export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+#vagrant shortcuts
+alias vu="cd $HOME/repos/rhw-infrastructure && vagrant up"
+alias vh="cd $HOME/repos/rhw-infrastructure && vagrant halt"
+alias vr="cd $HOME/repos/rhw-infrastructure && vagrant reload"
+alias vs="cd $HOME/repos/rhw-infrastructure && vagrant status"
+alias vg="vagrant global-status"
+
+# quickstart of dev env from in or outside of vagrant
+start_rhw() {
+	if [ `hostname` != "vagrant-instance" ]
+	then
+		cd $HOME/repos/rhw-infrastructure
+	       	echo "starting vagrant, this will fail if it's already running, but that's OK" && vagrant up
+       	       	echo "ssh'ing in to vagrant and starting the app" && ssh localdev -t '~/.start_rhw.sh'
+	else
+		run_rhw
+		echo "\ncleaning up (exit virtualenv and return to home folder)" && deactivate && cd ~
+	fi	
+}
+
+# load jeremy's rhw related shell enhancement
+# This needs to be adapted to play nice with zsh so is commented out (for now)
+#if [ -f /etc/rhw_bash_additions ]; then
+#	source /etc/rhw_bash_additions
+#fi
+
+die() {
+	exitcode=${2:-1}
+	echo ; echo "### ERROR: $1" ; echo
+	exit $exitcode
+}
+
+_get_sp_home() {
+	if [ -n "$VIRTUAL_ENV" ];
+	then
+		if [ -e "$VIRTUAL_ENV/HOME" ];
+		then
+			export SPHOME=`cat "$VIRTUAL_ENV/HOME"`
+			echo "$SPHOME"
+		else
+			echo "## WARNING: No $VIRTUAL_ENV/HOME file found.  Please create this containing your project's home sirectory"
+		fi
+	else
+			echo "## No VIRTUAL_ENV found.. you must 'sporkon' first"
+	fi
+}	
+
+sphome() {
+	SPHOME=`_get_sp_home`
+	if [ -d "$SPHOME" ];
+	then
+		cd "$SPHOME"
+	else
+		echo "$SPHOME"
+	fi
+}
+
+spmkvirtualenv() {
+	mkvirtualenv $@
+	echo `pwd`/$1 > $VIRTUAL_ENV/HOME
+}
+							    
+sporkon(){
+	[ -z "$1" ] && echo "## ERROR: You must specify an environment name\!" && return 1
+
+	[ -n "$VIRTUAL_ENV" ] && deactivate
+	[ -z "$VIRTUALENVWRAPPER_HOOK_DIR" ] && source /usr/local/bin/virtualenvwrapper.sh
+	[ ! -d "$VIRTUALENVWRAPPER_HOOK_DIR/$1" ] && echo "## ERROR: No such virtualenv $1... exiting" && return 3
+	if workon "$1"
+	then
+		sphome
+	else
+		die "### ERROR: problem with 'workon $1'"
+		return 4
+	fi
+	export SPHOME="`_get_sp_home`"
+	export PYLINTRC=$SPHOME/.pylintrc
+}
+
+list_migrations() {
+	sphome
+	[ ! -f manage.py ] && echo "##ERROR: $0 only available for django pojects" && return 44
+	./manage.py list_migrations | grep -v '\(\*\)'
+}
+
+# original version that relies on the $VIRTUAL_ENV/HOME file existing, which has some wierd issue with thinking it's still the ubuntu user
+#run_rhw() {
+#	sporkon rhw && cd rhw && ./manage.py runserver_plus 192.168.56.101:8000
+#}
+
+# my version, just adapted to use my zsh environment and virtualenv config
+run_rhw() {
+	workon rhw && cd rhw && ./manage.py runserver_plus 192.168.56.101:8000
+}
+
+runserver() {
+	./manage.py runserver_plus 192.168.56.101:8000
+}
+
