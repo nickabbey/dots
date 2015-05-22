@@ -253,3 +253,13 @@ runserver() {
 	./manage.py runserver_plus 192.168.56.101:8000
 }
 
+sync_vagrant() {
+	rm  --force ~/.zshrc ~/.hgrc ~/.vimrc ~/.start_rhw.sh
+	ln -s /home/vagrant/repos/dots/.zshrc /home/vagrant/.zshrc
+	ln -s /home/vagrant/repos/dots/.hgrc /home/vagrant/.hgrc
+	ln -s /home/vagrant/repos/dots/.vimrc /home/vagrant/.vimrc
+	ln -s /home/vagrant/repos/dots/.start_rhw.sh /home/vagrant/.start_rhw.sh
+	cp /home/vagrant/repos/dots/.virtualenvs/p* /home/vagrant/.virtualenvs/
+	source /home/vagrant/.zshrc
+}
+
