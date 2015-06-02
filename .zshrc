@@ -288,14 +288,12 @@ sync_ssh() {
 	chmod 600 ~/.ssh/*
 }
 
+# force pull of dotfiles on remote systems (so never leave unpushed changes in the dotfiles repo on remote machines or you will lose them)
 sync_dots() {
-	echo %m
+	if [[ "$HOSTNAME" != "ip-192-168-11-52" ]] || [[ "$HOSTNAME" != "ip-192-168-11-52" ]]; then
+		cd ~/repos/dots && git reset --hard && cd ~ && source .zshrc
+	fi
 }
 
 # AWS CLI Tab Completion
 source /usr/local/bin/aws_zsh_completer.sh
-
-# force pull of dotfiles on remote systems (so never leave unpushed changes in the dotfiles repo on remote machines or you will lose them)
-if [[ "$HOSTNAME" != "ip-192-168-11-52" ]] || [[ "$HOSTNAME" != "ip-192-168-11-52" ]]; then
-	cd ~/repos/dots && git reset --hard && cd ~ && source .zshrc
-fi
