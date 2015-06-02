@@ -132,6 +132,7 @@ alias lrth="ls -larth"
 # git aliases
 alias gs="git status"
 alias gl="git log"
+alias gfp="git fetch && git pull"
 alias gf="git fetch"
 alias gp="git push"
 alias ga="git add ."
@@ -147,11 +148,11 @@ alias hpull="hg pull"
 alias ha="hg add"
 
 # git syntactic sugar 
-gcp () {git commit -m $1 && git push  }
-gcm () {git commit -m $1 }
+gc() {git commit -m $1 }
+gcp() {git commit -m $1 && git push  }
 
 # hg syntactic sugar
-hc () {hg commit -m $1 } 
+hc() {hg commit -m $1 } 
 
 #quick access to local dev env
 alias s2v="ssh localdev"
