@@ -130,7 +130,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/repos
 
 #generic aliases
-alias lrth="ls -larth"
+alias larth="ls -larth"
+alias lrth="ls -lrth"
+alias sd="sync_dots"
 
 # git aliases
 alias gs="git status"
