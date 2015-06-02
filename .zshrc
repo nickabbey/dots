@@ -294,10 +294,10 @@ sync_dots() {
 		pushd
 		cd ~/repos/dots
 		#run the command, put stdout in var1 and stderr in var2
-		var1=`git reset --hard origin/master` 2>&1 | read var2
+		ERR=$(git reset --hard origin/master 2>&1)
 	        source .zshrc
 		popd
-		if [[ -z "$var2" ]]; then
+		if [[ -z "$ERR" ]]; then
 			echo "This error occurred when syncing the dot files:\n$var2"
 		else
 			echo "dotfiles updated, .zshrc sourced"
