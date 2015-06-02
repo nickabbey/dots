@@ -291,7 +291,7 @@ sync_ssh() {
 # force pull of dotfiles on remote systems (so never leave unpushed changes in the dotfiles repo on remote machines or you will lose them)
 sync_dots() {
 	if [[ "$HOSTNAME" != "ip-192-168-11-52" ]] || [[ "$HOSTNAME" != "ip-192-168-11-52" ]]; then
-		cd ~/repos/dots && git reset --hard 2>&1 && cd ~ && source .zshrc && echo "dotfiles updated, .zshrc sourced"
+		cd ~/repos/dots && git reset --hard origin/master 2>&1 && cd ~ && source .zshrc && echo "dotfiles updated, .zshrc sourced"
 	fi
 }
 
