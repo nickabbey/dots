@@ -25,6 +25,10 @@ autoload -U colors && colors
 ### This reverts the +/- operators in the dirstack
 #setopt pushdminus
 
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/repos/dots/zsh-customizations
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -61,9 +65,6 @@ ZSH_THEME="nico"
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -265,14 +266,12 @@ sync_vagrant() {
 }
 
 sync_remote() {
-	rm  --force ~/.zshrc ~/.hgrc ~/.vimrc ~/.start_rhw.sh ~/.tmux.conf
-	ln -s /home/vagrant/repos/dots/.zshrc /home/vagrant/.zshrc
-	ln -s /home/vagrant/repos/dots/.hgrc /home/vagrant/.hgrc
-	ln -s /home/vagrant/repos/dots/.vimrc /home/vagrant/.vimrc
-	ln -s /home/vagrant/repos/dots/.tmux.conf /home/vagrant/.tmux.conf
-	ln -s /home/vagrant/repos/dots/.start_rhw.sh /home/vagrant/.start_rhw.sh
-	cp /home/vagrant/repos/dots/.virtualenvs/p* /home/vagrant/.virtualenvs/
-	source /home/vagrant/.zshrc
+	rm  --force ~/.zshrc ~/.hgrc ~/.vimrc ~/.tmux.conf
+	ln -s ~/repos/dots/.zshrc ~/.zshrc
+	ln -s ~/repos/dots/.hgrc ~/.hgrc
+	ln -s ~/repos/dots/.vimrc ~/.vimrc
+	ln -s ~/repos/dots/.tmux.conf ~/.tmux.conf
+	source ~/.zshrc
 }
 
 # AWS CLI Tab Completion
