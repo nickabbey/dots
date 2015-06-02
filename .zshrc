@@ -274,5 +274,10 @@ sync_remote() {
 	source ~/.zshrc
 }
 
+sync_ssh() {
+	cp ~/repos/dots/.ssh/authorized_keys ~/.ssh/
+	cp ~/repos/dots/.ssh/config ~/.ssh/
+}
+
 # AWS CLI Tab Completion
 source /usr/local/bin/aws_zsh_completer.sh 
