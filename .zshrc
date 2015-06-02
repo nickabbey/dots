@@ -277,6 +277,7 @@ sync_remote() {
 sync_ssh() {
 	cp ~/repos/dots/.ssh/authorized_keys ~/.ssh/
 	cp ~/repos/dots/.ssh/config ~/.ssh/
+	chmod 600 ~/.ssh/*
 }
 
 # AWS CLI Tab Completion
