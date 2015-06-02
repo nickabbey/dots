@@ -74,6 +74,7 @@ plugins=(ssh-agent virtualenvwrapper tmux)
 
 # User configuration
 autoload -Uz vcs_info
+zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%{$fg[green]%}±"
