@@ -291,10 +291,15 @@ sync_ssh() {
 # force pull of dotfiles on remote systems (so never leave unpushed changes in the dotfiles repo on remote machines or you will lose them)
 sync_dots() {
 	if [[ "$HOSTNAME" != "ip-192-168-11-52" ]] || [[ "$HOSTNAME" != "ip-192-168-11-52" ]]; then
-		errmsg=`cmd` 2>&1 | read var2
+		pushd
 		cd ~/repos/dots
-	 	errmsg=`git reset --hard origin/master` 2>&1 | read errmsg
-	        cd ~ && source .zshrc && echo "dotfiles updated, .zshrc sourced"
+		#run the command, put stdout in var1 and stderr in var2
+		var1=`git reset --hard origin/master` 2>&1 | read var2
+	        source .zshrc && echo "dotfiles updated, .zshrc sourced"
+		popd
+		if [[ -z "$var2" ]]; then
+			echo "This error occurred when syncing the dot files:\n$var2"
+		fi		
 	fi
 }
 
