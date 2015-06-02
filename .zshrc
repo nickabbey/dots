@@ -126,6 +126,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/repos
 
+#generic aliases
+alias lrth="ls -larth"
+
 # git aliases
 alias gs="git status"
 alias gl="git log"
