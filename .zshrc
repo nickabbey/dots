@@ -300,6 +300,7 @@ sync_dots() {
 	else
 		pushd &> /dev/null
 		cd ~/repos/dots
+		git fetch origin
 		git reset --hard origin/master
 	        source .zshrc
 		popd &> /dev/null
