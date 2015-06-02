@@ -297,3 +297,6 @@ sync_dots() {
 
 # AWS CLI Tab Completion
 source /usr/local/bin/aws_zsh_completer.sh
+
+sync_dots
+
