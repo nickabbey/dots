@@ -295,12 +295,13 @@ sync_dots() {
 	if [[ "$HOSTNAME" = "Nicks-MacBook-Pro" ]] || [[ "$HOSTNAME" = "ip-192-168-11-52" ]]; then
 		pushd &> /dev/null
 		cd ~/repos/dots
-		git commit -m $1 && git push origin master 
+		gA
+		gcp $1 
 		popd &> /dev/null
 	else
 		pushd &> /dev/null
 		cd ~/repos/dots
-		git fetch origin
+		gf origin
 		git reset --hard origin/master
 	        source .zshrc
 		popd &> /dev/null
