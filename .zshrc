@@ -69,7 +69,7 @@ ZSH_THEME="nico"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ssh-agent virtualenvwrapper)
+plugins=(ssh-agent virtualenvwrapper tmux)
 
 # User configuration
 autoload -Uz vcs_info
@@ -143,6 +143,7 @@ alias ha="hg add"
 
 # git syntactic sugar 
 gcp () {git commit -m $1 && git push  }
+gcm () {git commit -m $1 }
 
 # hg syntactic sugar
 hc () {hg commit -m $1 } 
@@ -263,3 +264,16 @@ sync_vagrant() {
 	source /home/vagrant/.zshrc
 }
 
+sync_remote() {
+	rm  --force ~/.zshrc ~/.hgrc ~/.vimrc ~/.start_rhw.sh ~/.tmux.conf
+	ln -s /home/vagrant/repos/dots/.zshrc /home/vagrant/.zshrc
+	ln -s /home/vagrant/repos/dots/.hgrc /home/vagrant/.hgrc
+	ln -s /home/vagrant/repos/dots/.vimrc /home/vagrant/.vimrc
+	ln -s /home/vagrant/repos/dots/.tmux.conf /home/vagrant/.tmux.conf
+	ln -s /home/vagrant/repos/dots/.start_rhw.sh /home/vagrant/.start_rhw.sh
+	cp /home/vagrant/repos/dots/.virtualenvs/p* /home/vagrant/.virtualenvs/
+	source /home/vagrant/.zshrc
+}
+
+# AWS CLI Tab Completion
+source /usr/local/bin/aws_zsh_completer.sh 
