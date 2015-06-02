@@ -290,17 +290,17 @@ sync_ssh() {
 
 # force pull of dotfiles on remote systems and force push of dotfiles from localmachine
 sync_dots() {
-	if [[ "$HOSTNAME" != "ip-192-168-11-52" ]] || [[ "$HOSTNAME" != "ip-192-168-11-52" ]]; then
+	if [[ "$HOSTNAME" = "ip-192-168-11-52" ]] || [[ "$HOSTNAME" = "ip-192-168-11-52" ]]; then
+		pushd &> /dev/null
+		cd ~/repos/dots
+		git commit -m $1 && git push origin master --force
+		popd &> /dev/null
+	else
 		pushd &> /dev/null
 		cd ~/repos/dots
 		#run the command, put stdout in var1 and stderr in var2
 		git reset --hard origin/master 1> /dev/null
 	        source .zshrc
-		popd &> /dev/null
-	else
-		pushd &> /dev/null
-		cd ~/repos/dots
-		git commit -m $1 && git push origin master --force
 		popd &> /dev/null
 	fi
 }
