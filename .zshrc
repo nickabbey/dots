@@ -72,6 +72,9 @@ ZSH_THEME="nico"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(ssh-agent virtualenvwrapper tmux)
 
+# User Variables
+HOSTNAME=`hostname -s`
+
 # User configuration
 autoload -Uz vcs_info
 zstyle :omz:plugins:ssh-agent agent-forwarding on
@@ -285,5 +288,15 @@ sync_ssh() {
 	chmod 600 ~/.ssh/*
 }
 
+sync_dots() {
+	echo %m
+}
+
 # AWS CLI Tab Completion
-source /usr/local/bin/aws_zsh_completer.sh 
+source /usr/local/bin/aws_zsh_completer.sh
+
+# force pull of dotfiles on remote systems (so never leave unpushed changes in the dotfiles repo on remote machines or you will lose them)
+if [[ "$HOSTNAME" != "ip-192-168-11-52" ]] || [[ "$HOSTNAME" != "ip-192-168-11-52" ]]; then
+	cd ~/repos/dots && git fetch && git pull origin master --force
+	source ~/.zshrc
+fi
