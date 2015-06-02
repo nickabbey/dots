@@ -297,6 +297,5 @@ source /usr/local/bin/aws_zsh_completer.sh
 
 # force pull of dotfiles on remote systems (so never leave unpushed changes in the dotfiles repo on remote machines or you will lose them)
 if [[ "$HOSTNAME" != "ip-192-168-11-52" ]] || [[ "$HOSTNAME" != "ip-192-168-11-52" ]]; then
-	cd ~/repos/dots && git fetch && git pull origin master --force
-	source ~/.zshrc
+	cd ~/repos/dots && git reset --hard && cd ~ && source .zshrc
 fi
