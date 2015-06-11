@@ -267,12 +267,12 @@ runserver() {
 
 sync_vagrant() {
 	rm  --force ~/.zshrc ~/.hgrc ~/.vimrc ~/.start_rhw.sh
-	ln -s /home/vagrant/repos/dots/.zshrc /home/vagrant/.zshrc
-	ln -s /home/vagrant/repos/dots/.hgrc /home/vagrant/.hgrc
-	ln -s /home/vagrant/repos/dots/.vimrc /home/vagrant/.vimrc
-	ln -s /home/vagrant/repos/dots/.start_rhw.sh /home/vagrant/.start_rhw.sh
-	cp /home/vagrant/repos/dots/.virtualenvs/p* /home/vagrant/.virtualenvs/
-	source /home/vagrant/.zshrc
+	ln -s ~/repos/dots/.zshrc ~/.zshrc
+	ln -s ~/repos/dots/.hgrc ~/.hgrc
+	ln -s ~/repos/dots/.vimrc ~/.vimrc
+	ln -s ~/repos/dots/.start_rhw.sh ~/.start_rhw.sh
+	cp /home/vagrant/repos/dots/.virtualenvs/p* ~/.virtualenvs/
+	source ~/.zshrc
 }
 
 sync_remote() {
