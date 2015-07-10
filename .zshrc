@@ -315,20 +315,9 @@ source /usr/local/bin/aws_zsh_completer.sh
 export NOCOWS=0
 
 # ALWAYS start in a tmux session (to avoid abandoning ssh sessions)
-if [[ "$TERM" != "screen" ]] && 
-	[[ "$SSH_CONNECTION" != "" ]]; then
-	# Attempt to discover a detached session and attach 
-	# it, else create a new session
-	WHOAMI=$(whoami)
-	if tmux has-session -t $WHOAMI 2>/dev/null; then
-		tmux -2 attach-session -t $WHOAMI
-	else
-		tmux -2 new-session -s $WHOAMI
-	fi		
+if [ -z "$TMUX" ]; then
+	echo "NO TMUX SESSIONS AVAILABLE"
 else
-	#not actually doing anything for now
+	echo "TMUX SESSIONS:"
+	echo `tmux list-sessions`
 fi
-
-#when moshing, don't let it take over the tab title naming
-export MOSH_TITLE_NOPREFIX=1
-
