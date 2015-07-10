@@ -1,6 +1,13 @@
 [extensions]
 fetch =
 shelve =
+strip =
+color =
+rebase =
 prompt = ~/repos/hg-prompt/prompt.py
 [ui]
 username = Nicholas Abbruzzese nicholas.abbruzzese@regionalhelpwanted.com
+[hooks]
+pre-commit = ~/bin/pre-commit-hook.sh
+[alias]
+follow = log --follow --prune @ 
