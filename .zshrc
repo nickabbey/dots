@@ -155,6 +155,8 @@ alias ha="hg add"
 # git syntactic sugar 
 gc() {git commit -m $1 }
 gcp() {git commit -m $1 && git push  }
+gacp() {git add . && git commit -m $1 && git push  }
+gAcp() {git add . -a && git commit -m $1 && git push  }
 
 # hg syntactic sugar
 hc() {hg commit -m $1 } 
@@ -314,10 +316,3 @@ source /usr/local/bin/aws_zsh_completer.sh
 #use cosway for ansible
 export NOCOWS=0
 
-# ALWAYS start in a tmux session (to avoid abandoning ssh sessions)
-if [ -z "$TMUX" ]; then
-	echo "NO TMUX SESSIONS AVAILABLE"
-else
-	echo "TMUX SESSIONS:"
-	echo `tmux list-sessions`
-fi
