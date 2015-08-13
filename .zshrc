@@ -3,6 +3,12 @@ export ZSH=~/.oh-my-zsh
 autoload -U colors && colors
 # Load antigen for zsh easy configs
 #source /Users/nickabbey/DevOps/antigen/antigen.zsh
+. /Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+
+#to allow ctrl-s ot be remapped in vim:
+#alias vim="stty stop '' -ixoff ; vim"
+# Freezing' tty, so after any command terminal settings will be restored
+ttyctl -f
 
 # Directory stack
 # didn't use this much, and in vagrant it's noisy when changing dirs.
@@ -34,6 +40,7 @@ ZSH_CUSTOM=$HOME/repos/dots/zsh-customizations
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="nico"
+#ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
