@@ -4,12 +4,11 @@ highlight Normal guibg=black guifg=white
 if has("unix")
     let s:uname = system("uname")
         if s:uname == "Darwin\n"
-            python import sys; sys.path.append("/Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim")
+            python import sys; sys.path.append("/Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim"); sys.path.append("~/Library/Python/2.7/bin")
         else
             python import sys; sys.path.append("/usr/local/lib/python2.7/dist-packages"); sys.path.append("/usr/lib/python2.7/dist-packages")
         endif
 endif
-python import sys; sys.path.append("/Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim")
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
