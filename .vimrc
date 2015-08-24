@@ -254,3 +254,28 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " wget -O ~/.vim/ftplugin/python_editing.vim
 " http://www.vim.org/scripts/download_script.php?src_id=5492
 set nofoldenable
+
+" easier breakpoints for ipdb
+python << EOF
+import vim
+import re
+
+ipdb_breakpoint = 'import ipdb; ipdb.set_trace()'
+
+def set_breakpoint():
+    breakpoint_line = int(vim.eval('line(".")')) - 1
+
+    current_line = vim.current.line
+    white_spaces = re.search('^(\s*)', current_line).group(1)
+
+    vim.current.buffer.append(white_spaces + ipdb_breakpoint, breakpoint_line)
+
+vim.command('map <f5> :py set_breakpoint()<cr>')
+
+def remove_breakpoints():
+    op = 'g/^.*%s.*/d' % ipdb_breakpoint
+    vim.command(op)
+
+vim.command('map <f6> :py remove_breakpoints()<cr>')
+EOF
+map<F12> :!python %<cr>

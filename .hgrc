@@ -13,3 +13,6 @@ pre-commit = ~/bin/pre-commit-hook.sh
 [alias]
 update = update -c
 follow = log --follow --prune @ 
+[trusted]
+users = 501
+
