@@ -5,9 +5,9 @@ autoload -U colors && colors
 #source /Users/nickabbey/DevOps/antigen/antigen.zsh
 # use the right location for pwerline.zsh in osx or ubuntu
 if [ `uname` = "Darwin" ]; then
-    . /Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+    . $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 else
-    . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
+    . $HOME/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 source $ZSH/oh-my-zsh.sh
 
