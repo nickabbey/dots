@@ -9,6 +9,7 @@ if [ `uname` = "Darwin" ]; then
 else
     . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
 fi
+source $ZSH/oh-my-zsh.sh
 
 #to allow ctrl-s ot be remapped in vim:
 #alias vim="stty stop '' -ixoff ; vim"
@@ -108,8 +109,6 @@ precmd() {
 }
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
