@@ -6,7 +6,7 @@ if has("unix")
         if s:uname == "Darwin\n"
             python import sys; sys.path.append("/Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim")
         else
-            python import sys; sys.path.append("/usr/local/lib/python2.7/dist-packages"); sys.path.append("/usr/lib/python2.7/dist-packages")
+            python import sys; sys.path.append("/usr/local/lib/python2.7/dist-packages"); sys.path.append("/usr/lib/python2.7/dist-packages"); sys.path.append("/usr/lib/python2.7/site-packages"); sys.path.append("/usr/local/lib/python2.7/site-packages")
         endif
 endif
 python import sys; sys.path.append("/Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim")
@@ -225,7 +225,7 @@ set smartcase
 " Settings for jedi-vim
 " cd ~/.vim/bundle
 " git clone git://github.com/davidhalter/jedi-vim.git
-let g:jedi#usages_command = "<leader>z"
+let g:jedi#usages_command = "<leader>f"
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#use_tabs_not_buffers = 1

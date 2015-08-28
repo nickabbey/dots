@@ -7,7 +7,13 @@ autoload -U colors && colors
 if [ `uname` = "Darwin" ]; then
     . /Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 else
-    . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
+    if [ -e "/usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh" ]; then
+        . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
+    elif [ -e "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
+        . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+    else
+        echo "no pwerline bindings found, you probably need to do 'pip install powerline powerline-status'"
+    fi
 fi
 source $ZSH/oh-my-zsh.sh
 
@@ -324,7 +330,11 @@ sync_dots() {
 }
 
 # AWS CLI Tab Completion
-source /usr/local/bin/aws_zsh_completer.sh
+if [ -e "/usr/local/bin/aws_zsh_completer.sh" ]; then
+    source /usr/local/bin/aws_zsh_completer.sh
+else
+    echo "no awscli tools  found"
+fi
 
 #use cosway for ansible
 export NOCOWS=0
