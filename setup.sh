@@ -16,7 +16,7 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
 fi
 
 #force the permission on ~/.oh-my-zsh AND remove the zcomp* files that may cause issues
-chown -R vagrant:vagrant ~/.oh-my-zsh
+chown -R `whoami`:`whoami` ~/.oh-my-zsh
 chmod -R 755 ~/.oh-my-zsh
 rm --force ~/.zcomp*
 
