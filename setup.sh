@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # install oh-my-zsh if needed, using curl or wget (die if neither is installed)
-$CURL=`which curl`
-$WGET=`which wget`
+CURL=`which curl`
+WGET=`which wget`
 
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-	if [[ -e /usr/bin/curl ]]; then
+    if [[ -e $CURL ]]; then
 		curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-	elif [[ -e /usr/bin/wget ]]; then
+	elif [[ -e $WGET ]]; then
 		wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
 	else
 		echo "missing curl and wget, install one to continue"
@@ -44,4 +44,4 @@ vim -c VundleUpdate -c quitall
 
 # output done message
 echo "ZSH, oh-my-zsh and vundle installed, initial configs complete. You should log off and back in then run: sync_remote"
-
+echo "Additionally, if you had missing powerline packages, run 'pip install --user git+git://github.com/Lokaltog/powerline' "
