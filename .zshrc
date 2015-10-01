@@ -3,16 +3,27 @@ export ZSH=~/.oh-my-zsh
 autoload -U colors && colors
 # Load antigen for zsh easy configs
 #source /Users/nickabbey/DevOps/antigen/antigen.zsh
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# use --user installed pip packages if they exist
+if [ -e $HOME/.local/bin ]; then
+    export PATH=$PATH:$HOME/.local/bin
+fi
+
 # use the right location for pwerline.zsh in osx or ubuntu
 if [ `uname` = "Darwin" ]; then
     . /Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 else
-    if [ -e "/usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh" ]; then
+    if [ -e ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
+        . ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+    elif [ -e "/usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh" ]; then
         . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
     elif [ -e "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
         . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
     else
-        echo "no pwerline bindings found, you probably need to do 'pip install powerline powerline-status'"
+        echo "no powerline bindings found, you probably need to do 'pip install powerline powerline-status'"
     fi
 fi
 source $ZSH/oh-my-zsh.sh
@@ -113,8 +124,6 @@ precmd() {
 #	}
 	vcs_info
 }
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
