@@ -23,7 +23,7 @@ else
     elif [ -e "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
         . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
     else
-        echo "no powerline bindings found, you probably need to do 'pip install powerline powerline-status'"
+        echo "no zsh powerline bindings found, you probably need to do 'pip install --user git+git://github.com/Lokaltog/powerline' or similar"
     fi
 fi
 source $ZSH/oh-my-zsh.sh
