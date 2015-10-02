@@ -190,7 +190,7 @@ gAcp() {git add . -a && git commit -m $1 && git push  }
 hc() {hg commit -m $1 } 
 
 #quick access to local dev env
-alias s2v="workn rhw-infrastructure && vagrant ssh"
+alias s2v="workon rhw-infrastructure && vagrant ssh"
 alias s2j="ssh jump.rhwi.net"
 alias s2ju="ssh ubuntu@jump.rhwi.net"
 alias neovim="nvim"
