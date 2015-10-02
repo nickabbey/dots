@@ -191,6 +191,8 @@ hc() {hg commit -m $1 }
 
 #quick access to local dev env
 alias s2v="ssh localdev"
+alias s2j="ssh jump.rhwi.net"
+alias s2ju="ssh ubuntu@jump.rhwi.net"
 alias neovim="nvim"
 alias macvim="mvim"
 export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
