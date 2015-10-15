@@ -14,7 +14,7 @@ fi
 
 # use the right location for pwerline.zsh in osx or ubuntu
 if [ `uname` = "Darwin" ]; then
-    . /Users/nickabbey/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+    . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 else
     if [ -e ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
         . ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
