@@ -218,6 +218,11 @@ start_rhw() {
 	fi	
 }
 
+
+vflip() {
+    [[ -n $$VIRTUAL_ENV ]] && cd && vagrant reload --provision
+}
+
 # load jeremy's rhw related shell enhancement
 # This needs to be adapted to play nice with zsh so is commented out (for now)
 #if [ -f /etc/rhw_bash_additions ]; then

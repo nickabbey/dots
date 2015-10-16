@@ -9,8 +9,6 @@ prompt = ~/repos/hg-prompt/prompt.py
 [ui]
 username = Nicholas Abbruzzese nicholas.abbruzzese@regionalhelpwanted.com
 merge = internal:merge
-[hooks]
-pre-commit = ~/bin/pre-commit-hook.sh
 [alias]
 update = update -c
 follow = log --follow --prune @ 
