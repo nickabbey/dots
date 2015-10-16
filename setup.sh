@@ -15,6 +15,12 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
 	fi
 fi
 
+# upgrade users pip
+pip install --upgrade pip
+
+# install powerline
+pip install --user git+git://github.com/Lokaltog/powerline
+
 #force the permission on ~/.oh-my-zsh AND remove the zcomp* files that may cause issues
 chown -R `whoami`:`whoami` ~/.oh-my-zsh
 chmod -R 755 ~/.oh-my-zsh
