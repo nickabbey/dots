@@ -15,6 +15,16 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
 	fi
 fi
 
+# if bin folder exists and isn't a synlink, mv to tmp, delete dir, create link and copy files
+if [ -e "$HOME/bin" ] && [ ! -h "$HOME/bin" ]; then
+    mv $HOME/bin /tmp/my_bins
+    ln -s $HOME/repos/bin $HOME/bin
+    cp -ab /tmp/my_bins/* $HOME/bin
+    rm -rf /tmp/my_bins
+elif [ ! -e "$HOME/bin" ]; then # if there IS no ~/bin, create a link
+    ln -s $HOME/repos/bin $HOME/bin
+fi
+
 # upgrade users pip
 pip install --upgrade pip
 
