@@ -26,7 +26,7 @@ elif [ ! -e "$HOME/bin" ]; then # if there IS no ~/bin, create a link
 fi
 
 # upgrade users pip
-pip install --upgrade pip
+pip install --user --upgrade pip setuptools wheel virtualenv virtualenvwrapper
 
 # install powerline
 pip install --user git+git://github.com/Lokaltog/powerline
