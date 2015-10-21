@@ -169,7 +169,7 @@ alias sd="sync_dots"
 alias la="ls -la"
 
 #aliases for commonly used functions
-alias fp="fetch_dots"
+alias fd="fetch_dots"
 alias pd="push_dots"
 alias dots="cd ~/repos/dots"
 
