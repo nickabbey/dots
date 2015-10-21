@@ -58,6 +58,9 @@ ln -s ~/repos/dots/.vimrc ~/.vimrc
 # install vundle plugins from the commandline
 vim -c VundleUpdate -c quitall
 
+git config --global user.email "nick.abbey@regionalhelpwanted.com"
+git config --global user.name "Nick Abbruzzese"
+
 # output done message
 echo "ZSH, oh-my-zsh and vundle installed, initial configs complete. You should log off and back in then run: sync_remote"
 echo "Additionally, if you had missing powerline packages, run 'pip install --user git+git://github.com/Lokaltog/powerline' "

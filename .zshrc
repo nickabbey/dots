@@ -12,6 +12,11 @@ if [ -e $HOME/.local/bin ]; then
     export PATH=$PATH:$HOME/.local/bin
 fi
 
+# use ~/bin in path if it exists
+if [ -e $HOME/.local/bin ]; then
+    export PATH=$PATH:$HOME/bin
+fi
+
 # use the right location for pwerline.zsh in osx or ubuntu
 if [ `uname` = "Darwin" ]; then
     . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
