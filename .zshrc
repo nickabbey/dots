@@ -189,7 +189,7 @@ alias ha="hg add"
 gc() {git commit -m $1 }
 gcp() {git commit -m $1 && git push  }
 gacp() {git add . && git commit -m $1 && git push  }
-gAcp() {git add . -a && git commit -m $1 && git push  }
+gAcp() {git add . -A && git commit -m $1 && git push  }
 
 # hg syntactic sugar
 hc() {hg commit -m $1 } 
