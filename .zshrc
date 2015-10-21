@@ -166,6 +166,12 @@ export PROJECT_HOME=$HOME/repos
 alias larth="ls -larth"
 alias lrth="ls -lrth"
 alias sd="sync_dots"
+alias la="ls -la"
+
+#aliases for commonly used functions
+alias fp="fetch_dots"
+alias pd="push_dots"
+alias dots="cd ~/repos/dots"
 
 # git aliases
 alias gs="git status"
@@ -194,12 +200,10 @@ gAcp() {git add . -A && git commit -m $1 && git push  }
 # hg syntactic sugar
 hc() {hg commit -m $1 } 
 
-#quick access to local dev env
+#quick access to different remote hosts
 alias s2v="workon rhw-infrastructure && vagrant ssh"
 alias s2j="ssh jump.rhwi.net"
 alias s2ju="ssh ubuntu@jump.rhwi.net"
-alias neovim="nvim"
-alias macvim="mvim"
 export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -348,6 +352,24 @@ sync_dots() {
 	        source .zshrc
 		popd &> /dev/null
 	fi
+}
+
+fetch_dots() {
+    pushd &> /dev/null
+    cd ~/repos/dots
+    gfp
+    popd &> /dev/null
+}
+
+push_dots() {
+    if [ -z $1 ]; then
+        echo "A commit message surrounded by double or single quotes is required"
+    else
+        pushd &> /dev/null
+        cd ~/repos/dots
+        gAcp $1
+        popd &> /dev/null
+    fi
 }
 
 # AWS CLI Tab Completion
