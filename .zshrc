@@ -204,6 +204,25 @@ hc() {hg commit -m $1 }
 alias s2v="workon rhw-infrastructure && vagrant ssh"
 alias s2j="ssh jump.rhwi.net"
 alias s2ju="ssh ubuntu@jump.rhwi.net"
+alias s2ptb="ssh prod-rhw-tools-b-3"
+alias s2ptc="ssh prod-rhw-tools-c-3"
+alias s2pwa="ssh prod-rhw-webapp-a-3"
+alias s2pwb="ssh prod-rhw-webapp-b-3"
+alias s2pwc="ssh prod-rhw-webapp-c-3"
+alias s2qwa="ssh qa-rhw-webapp-a"
+alias s2qwc="ssh qa-rhw-webapp-c"
+alias s2qtb="ssh qa-rhw-tools-b"
+alias s2qtc="ssh qa-rhw-tools-c"
+alias s2ptbu="ssh ubuntu@prod-rhw-tools-b-3"
+alias s2ptcu="ssh ubuntu@prod-rhw-tools-c-3"
+alias s2pwau="ssh ubuntu@prod-rhw-webapp-a-3"
+alias s2pwbu="ssh ubuntu@prod-rhw-webapp-b-3"
+alias s2pwcu="ssh ubuntu@prod-rhw-webapp-c-3"
+alias s2qwau="ssh ubuntu@qa-rhw-webapp-a"
+alias s2qwcu="ssh ubuntu@qa-rhw-webapp-c"
+alias s2qtbu="ssh ubuntu@qa-rhw-tools-b"
+alias s2qtcu="ssh ubuntu@qa-rhw-tools-c"
+
 export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
