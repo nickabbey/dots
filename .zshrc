@@ -391,6 +391,16 @@ push_dots() {
     fi
 }
 
+findXinY(){
+    if [ -z $1 ] || [ -z $2 ] || [ -z $3 ]; then
+        echo "Usage: findXinY <search path> <file name> <grep string>/n"
+        echo "Returns matches of <grep string> across all files matching name <file name> starting in <search path> (inclusive)"
+        echo "NOTE - If args 2 or 3 contain spaces, wrap them in double quotes!/n"
+    else
+        find $1 -name $2 -exec grep $3 {} +
+    fi
+}
+
 # AWS CLI Tab Completion
 if [ -e "/usr/local/bin/aws_zsh_completer.sh" ]; then
     source /usr/local/bin/aws_zsh_completer.sh
