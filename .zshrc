@@ -9,12 +9,12 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # use --user installed pip packages if they exist
 if [ -e $HOME/.local/bin ]; then
-    export PATH=$PATH:$HOME/.local/bin
+    export PATH=$HOME/.local/bin:$PATH
 fi
 
 # use ~/bin in path if it exists
-if [ -e $HOME/.local/bin ]; then
-    export PATH=$PATH:$HOME/bin
+if [ -e $HOME/bin ]; then
+    export PATH=$HOME/bin:$PATH
 fi
 
 # use the right location for pwerline.zsh in osx or ubuntu
