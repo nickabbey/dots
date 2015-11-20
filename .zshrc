@@ -222,6 +222,8 @@ alias s2qwau="ssh ubuntu@qa-rhw-webapp-a"
 alias s2qwcu="ssh ubuntu@qa-rhw-webapp-c"
 alias s2qtbu="ssh ubuntu@qa-rhw-tools-b"
 alias s2qtcu="ssh ubuntu@qa-rhw-tools-c"
+alias s2tja="ssh test-jenkins-a"
+alias s2jau="ssh ubuntu@test-jenkins-a"
 
 export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
 export VIRTUAL_ENV_DISABLE_PROMPT=1
