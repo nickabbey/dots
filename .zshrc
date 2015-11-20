@@ -9,12 +9,12 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # use --user installed pip packages if they exist
 if [ -e $HOME/.local/bin ]; then
-    export PATH=$PATH:$HOME/.local/bin
+    export PATH=$HOME/.local/bin:$PATH
 fi
 
 # use ~/bin in path if it exists
-if [ -e $HOME/.local/bin ]; then
-    export PATH=$PATH:$HOME/bin
+if [ -e $HOME/bin ]; then
+    export PATH=$HOME/bin:$PATH
 fi
 
 # use the right location for pwerline.zsh in osx or ubuntu
@@ -390,6 +390,16 @@ push_dots() {
         cd ~/repos/dots
         gAcp $1
         popd &> /dev/null
+    fi
+}
+
+findXinY(){
+    if [ -z $1 ] || [ -z $2 ] || [ -z $3 ]; then
+        echo "Usage: findXinY <search path> <file name> <grep string>/n"
+        echo "Returns matches of <grep string> across all files matching name <file name> starting in <search path> (inclusive)"
+        echo "NOTE - If args 2 or 3 contain spaces, wrap them in double quotes!/n"
+    else
+        find $1 -name $2 -exec grep $3 {} +
     fi
 }
 
