@@ -279,3 +279,4 @@ def remove_breakpoints():
 vim.command('map <f6> :py remove_breakpoints()<cr>')
 EOF
 map<F12> :!python %<cr>
+execute pathogen#infect()
