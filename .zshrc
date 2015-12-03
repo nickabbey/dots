@@ -339,7 +339,6 @@ sync_vagrant() {
 	ln -s ~/repos/dots/.vimrc ~/.vimrc
 	ln -s ~/repos/dots/.start_rhw.sh ~/.start_rhw.sh
 	cp /home/vagrant/repos/dots/.virtualenvs/p* ~/.virtualenvs/
-	source ~/.zshrc
 }
 
 sync_remote() {
@@ -348,7 +347,6 @@ sync_remote() {
 	ln -s ~/repos/dots/.hgrc ~/.hgrc
 	ln -s ~/repos/dots/.vimrc ~/.vimrc
 	ln -s ~/repos/dots/.tmux.conf ~/.tmux.conf
-	source ~/.zshrc
 }
 
 sync_ssh() {
