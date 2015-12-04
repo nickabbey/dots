@@ -235,6 +235,9 @@ alias vr="cd $HOME/repos/rhw-infrastructure && vagrant reload"
 alias vs="cd $HOME/repos/rhw-infrastructure && vagrant status"
 alias vg="vagrant global-status"
 
+#rhw related shortcuts
+alias test_with_degauss="$HOME/bin/degauss.sh && $HOME/bin/run_tests.sh"
+
 # quickstart of dev env from in or outside of vagrant
 start_rhw() {
 	if [ `hostname` != "vagrant-instance" ]
