@@ -37,7 +37,7 @@ if [ `uname` = "Darwin" ]; then
     chown -R `whoami`:staff ~/.oh-my-zsh
     rm -f ~/.zshrc
     rm -f ~/.vimrc
-    chmod -R 775 ~/.oh-my-zsh
+    chmod -R 755 ~/.oh-my-zsh
 else
     chown -R `whoami`:`whoami` ~/.oh-my-zsh
     rm --force ~/.zshrc
