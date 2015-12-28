@@ -31,13 +31,20 @@ pip install --user --upgrade pip setuptools wheel virtualenv virtualenvwrapper
 # install powerline
 pip install --user git+git://github.com/Lokaltog/powerline
 
-#force the permission on ~/.oh-my-zsh AND remove the zcomp* files that may cause issues
-chown -R `whoami`:`whoami` ~/.oh-my-zsh
-chmod -R 755 ~/.oh-my-zsh
-rm --force ~/.zcomp*
+# force the permission on ~/.oh-my-zsh AND remove the zcomp* files that may cause issues
+# drop the local .zshrc and .vimrc files
+if [ `uname` = "Darwin" ]; then
+    chown -R `whoami`:staff ~/.oh-my-zsh
+    rm -f ~/.zshrc
+    rm -f ~/.vimrc
+else
+    chown -R `whoami`:`whoami` ~/.oh-my-zsh
+    rm --force ~/.zshrc
+    rm --force ~/.vimrc
+fi
 
-# remove existing .zshrc
-rm --force ~/.zshrc
+chmod -R 775 ~/.oh-my-zsh
+find ~ -name "zcomp*" -delete
 
 # link the .zshrc file from version control
 ln -s ~/repos/dots/.zshrc ~/.zshrc
@@ -52,7 +59,6 @@ if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
 fi
 
 # make sure you're using the latest vimrc from dots
-rm --force ~/.vimrc
 ln -s ~/repos/dots/.vimrc ~/.vimrc
 
 # install vundle plugins from the commandline
