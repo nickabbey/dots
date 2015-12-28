@@ -32,18 +32,19 @@ pip install --user --upgrade pip setuptools wheel virtualenv virtualenvwrapper
 pip install --user git+git://github.com/Lokaltog/powerline
 
 # force the permission on ~/.oh-my-zsh AND remove the zcomp* files that may cause issues
-# drop the local .zshrc and .vimrc files
+# drop the local config files that need to be linked 
 if [ `uname` = "Darwin" ]; then
     chown -R `whoami`:staff ~/.oh-my-zsh
     rm -f ~/.zshrc
     rm -f ~/.vimrc
+    chmod -R 775 ~/.oh-my-zsh
 else
     chown -R `whoami`:`whoami` ~/.oh-my-zsh
     rm --force ~/.zshrc
     rm --force ~/.vimrc
+    chmod -R 775 ~/.oh-my-zsh
 fi
 
-chmod -R 775 ~/.oh-my-zsh
 find ~ -name "zcomp*" -delete
 
 # link the .zshrc file from version control
