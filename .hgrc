@@ -7,11 +7,11 @@ rebase =
 purge =
 prompt = ~/repos/hg-prompt/prompt.py
 [ui]
-username = Nicholas Abbruzzese <nicholas.abbruzzese@regionalhelpwanted.com>
+username = Nicholas Abbruzzese <nickabbey@gmail.com>
 merge = internal:merge
 [alias]
 update = update -c
-follow = log --follow --prune @ 
+follow = log --follow --prune @
 [trusted]
 users = 501
 
