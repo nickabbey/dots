@@ -120,6 +120,7 @@ HOSTNAME=`hostname -s`
 # User configuration
 autoload -Uz vcs_info
 zstyle :omz:plugins:ssh-agent agent-forwarding on
+zstyle :omz:plugins:ssh-agent identities id_rsa github_id_rsa
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%{$fg[green]%}±"
