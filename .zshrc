@@ -18,19 +18,26 @@ if [ -e $HOME/bin ]; then
 fi
 
 # use the right location for pwerline.zsh in osx or ubuntu
-if [ `uname` = "Darwin" ]; then
-    . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+# if [ `uname` = "Darwin" ]; then
+#     . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+# else
+#     if [ -e ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
+#         . ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#     elif [ -e "/usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh" ]; then
+#         . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
+#     elif [ -e "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
+#         . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#     else
+#         echo "no zsh powerline bindings found, you probably need to do 'pip install --user git+git://github.com/Lokaltog/powerline' or similar"
+#     fi
+# fi
+POWERLINE_BINDINGS=$(find /Users/nick -name "powerline.zsh")
+if [ -z $POWERLINE_BINONGS ]; then
+    . $POWERLINE_BINDINGS
 else
-    if [ -e ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
-        . ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-    elif [ -e "/usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh" ]; then
-        . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
-    elif [ -e "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
-        . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-    else
-        echo "no zsh powerline bindings found, you probably need to do 'pip install --user git+git://github.com/Lokaltog/powerline' or similar"
-    fi
+    echo "No powerline bindings for zsh were found"
 fi
+
 source $ZSH/oh-my-zsh.sh
 
 #to allow ctrl-s ot be remapped in vim:
