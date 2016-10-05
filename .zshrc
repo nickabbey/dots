@@ -4,6 +4,7 @@ autoload -U colors && colors
 # Load antigen for zsh easy configs
 #source /Users/nickabbey/DevOps/antigen/antigen.zsh
 
+#for things that need it
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -31,12 +32,12 @@ fi
 #         echo "no zsh powerline bindings found, you probably need to do 'pip install --user git+git://github.com/Lokaltog/powerline' or similar"
 #     fi
 # fi
-POWERLINE_BINDINGS=$(find /Users/nick -name "powerline.zsh")
-if [ -z $POWERLINE_BINONGS ]; then
-    . $POWERLINE_BINDINGS
-else
-    echo "No powerline bindings for zsh were found"
-fi
+#POWERLINE_BINDINGS=$(find ~ -name "powerline.zsh" | grep -v "vim")
+#if [ -z $POWERLINE_BINDINGS ]; then
+#    . $POWERLINE_BINDINGS
+#else
+#    echo "No powerline bindings for zsh were found"
+#fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -165,16 +166,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# source the virtualenv wrapper
-source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/repos
-
+# Find the virtualenv wrapper
+# VENVWRAPPER=$(find $HOME -name "virtualenvwrapper.sh")
+# if [ -z $VENVWRAPPER ]; then
+#     # source the virtualenv wrapper
+#     . $VENVWRAPPER
+#     export WORKON_HOME=$HOME/.virtualenvs
+#     export PROJECT_HOME=$HOME/repos
+# else
+#     echo "No virtualenvwrapper.sh script was found"
+# fi
+#
 #generic aliases
 alias larth="ls -larth"
 alias lrth="ls -lrth"
 alias sd="sync_dots"
 alias la="ls -la"
+alias clearclip="echo -n '' | pbcopy"
 
 #aliases for commonly used functions
 alias fd="fetch_dots"
