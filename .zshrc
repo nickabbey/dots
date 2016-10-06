@@ -95,7 +95,8 @@ ZSH_THEME="nico"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ssh-agent virtualenvwrapper tmux)
+#plugins=(ssh-agent virtualenvwrapper tmux)
+plugins=(ssh-agent tmux)
 
 # User configuration
 autoload -Uz vcs_info
@@ -137,6 +138,8 @@ export EDITOR='vim'
 # fi
 #======================================================================
 
+export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 #generic aliases
@@ -171,9 +174,6 @@ alias s2dubb="ssh dubprdvoadmbs1.dub.jabodo.com"
 alias s2lvs="ssh lvsystems1a.lv.jabodo.com"
 alias s2lvb="ssh lvprdvoadmbs.lv.jabodo.com"
 
-export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
 #vagrant shortcuts
 alias vu="vagrant up"
 alias vh="vagrant halt"
@@ -186,9 +186,6 @@ gc() {git commit -m $1 }
 gcp() {git commit -m $1 && git push  }
 gacp() {git add . && git commit -m $1 && git push  }
 gAcp() {git add . -A && git commit -m $1 && git push  }
-
-export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
-export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 vflip() {
     [[ -n $$VIRTUAL_ENV ]] && cd && vagrant reload --provision
