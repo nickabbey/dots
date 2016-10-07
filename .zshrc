@@ -174,14 +174,6 @@ alias s2dubb="ssh dubprdvoadmbs1.dub.jabodo.com"
 alias s2lvs="ssh lvsystems1a.lv.jabodo.com"
 alias s2lvb="ssh lvprdvoadmbs1.lv.jabodo.com"
 
-alias dfs="dfsystems1a.df.jabodo.com"
-alias dfb="dfprdvoadmbs1.df.jabodo.com"
-alias dubs="dubsystems1a.dub.jabodo.com"
-alias dubb="dubprdvoadmbs1.dub.jabodo.com"
-alias lvs="lvsystems1a.lv.jabodo.com"
-alias lvb="lvprdvoadmbs1.lv.jabodo.com"
-
-#vagrant shortcuts
 alias vu="vagrant up"
 alias vh="vagrant halt"
 alias vr="vagrant reload"
