@@ -169,7 +169,14 @@ alias s2dfb="ssh dfprdvoadmbs1.df.jabodo.com"
 alias s2dubs="ssh dubsystems1a.dub.jabodo.com"
 alias s2dubb="ssh dubprdvoadmbs1.dub.jabodo.com"
 alias s2lvs="ssh lvsystems1a.lv.jabodo.com"
-alias s2lvb="ssh lvprdvoadmbs.lv.jabodo.com"
+alias s2lvb="ssh lvprdvoadmbs1.lv.jabodo.com"
+
+alias dfs="dfsystems1a.df.jabodo.com"
+alias dfb="dfprdvoadmbs1.df.jabodo.com"
+alias dubs="dubsystems1a.dub.jabodo.com"
+alias dubb="dubprdvoadmbs1.dub.jabodo.com"
+alias lvs="lvsystems1a.lv.jabodo.com"
+alias lvb="lvprdvoadmbs1.lv.jabodo.com"
 
 export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
 export VIRTUAL_ENV_DISABLE_PROMPT=1
