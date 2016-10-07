@@ -5,8 +5,8 @@ CURL=`which curl`
 WGET=`which wget`
 
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    if [[ -e $CURL ]]; then
-		curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+	if [[ -e $CURL ]]; then
+		curl -Lk https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 	elif [[ -e $WGET ]]; then
 		wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
 	else
