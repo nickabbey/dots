@@ -65,6 +65,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 colorscheme elflord
 set background=dark
+hi Search cterm=NONE ctermfg=yellow ctermbg=yellow
+set splitright
 
 "map undo to ctrl-u in all modes (use ctrl-r for redo)
 noremap <C-u> <ESC>:u<CR>
