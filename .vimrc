@@ -32,7 +32,7 @@ Plugin 'jmcantrell/vim-virtualenv'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo

@@ -29,7 +29,7 @@ fi
 pip install --user --upgrade pip setuptools wheel virtualenv virtualenvwrapper
 
 # install powerline
-pip install --user git+git://github.com/Lokaltog/powerline
+pip install --user git+git://github.com/powerline/powerline
 
 # force the permission on ~/.oh-my-zsh AND remove the zcomp* files that may cause issues
 # drop the local config files that need to be linked 
@@ -70,4 +70,4 @@ git config --global user.name "Nick Abbruzzese"
 
 # output done message
 echo "ZSH, oh-my-zsh and vundle installed, initial configs complete. You should log off and back in then run: sync_remote"
-echo "Additionally, if you had missing powerline packages, run 'pip install --user git+git://github.com/Lokaltog/powerline' "
+echo "Additionally, if you had missing powerline packages, run 'pip install --user git+git://github.com/powerline/powerline' "
